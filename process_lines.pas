@@ -14,7 +14,6 @@ type args = class
               
               Constructor Create() ;
               Destructor Destory() ;
-              
             End;
 
 var ;
@@ -23,6 +22,24 @@ Procedure process ( Var ar : args ; str : String ) ;
 
 Implementation
 
-  
+  Procedure process ( Var ar : args ; str : String ) ;
+  var leng : Longint = length(str) ;
+  var i : Longint ;
+  Begin
+    i := 1 ;
+    if strp[1]=' ' then delete(str, 1, 1);
+    while i <= leng do
+      Begin 
+        while str[i]=' ' and str[i+1]=' ' do 
+          Begin 
+            delete(str,i,1) ;
+            dec(leng);
+          End;
+        inc(i);
+      End;
+    if str[length(str)] = ' ' then delete(str,length(str),1);
+    
+    writeln(str);
+  End;
 
 End.
